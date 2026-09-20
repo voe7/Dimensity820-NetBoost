@@ -1,0 +1,270 @@
+# =============================================================================
+# Dimensity 820 (MT6875) Network Mod v2.0 — system.prop
+# EXCLUSIVE: Dimensity 820 only
+# 4x A76 + 4x A55 · 7nm · WiFi 6 2x2 (MT6631) · NR Sub-6 2CC CA
+# =============================================================================
+
+# =============================================================================
+# 1. LTE CARRIER AGGREGATION — 5CC CA, Cat 18
+# =============================================================================
+persist.data.lte.ca=1
+persist.radio.lte_ca_enabled=1
+persist.vendor.radio.force_lte_ca=true
+persist.vendor.radio.lte.lteca.cap=2
+persist.vendor.radio.lte_ul_ca=1
+persist.vendor.radio.lte_dl_ca=1
+persist.vendor.radio.lte_dl_carrier=3
+persist.vendor.radio.lte_ul_carrier=2
+persist.vendor.radio.lte_ca_max_component=5
+persist.vendor.radio.lte_ca_inter_band=1
+# D820 certified LTE CA combos
+persist.vendor.radio.lte_ca_band_combo=1,3,5,7,8,28,38,40,41
+persist.radio.data_no_toggle=1
+persist.radio.calls.on.ims=1
+
+# =============================================================================
+# 2. MTK BASEBAND — MT6875 integrated modem
+# =============================================================================
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.mtk_dsbp_support=1
+persist.vendor.radio.sib16.support=1
+persist.vendor.radio.smart.data.switch=1
+persist.vendor.radio.ap_mdm_sync=1
+persist.vendor.radio.data_con_rgs=1
+ro.vendor.net.upload_optimization=1
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=5
+ro.ril.hsdpa.category=24
+ro.ril.enable.amr.wideband=1
+ro.ril.hep=1
+ro.ril.enable.a52=1
+ro.ril.enable.a53=1
+
+# =============================================================================
+# 3. FAST DORMANCY — Disabled (7nm modem fast enough)
+# =============================================================================
+persist.env.fastdorm.enabled=false
+ro.ril.fast.dormancy.rule=0
+persist.vendor.radio.fd.disable=1
+
+# =============================================================================
+# 4. WIFI HAL — MT6631, WiFi 6 2x2 MIMO, 80MHz
+# =============================================================================
+ro.vendor.wifi.power_save=false
+persist.sys.wifi.power_save=false
+persist.vendor.mediatek.wifi.power_save=false
+wifi.ps.mode=0
+persist.vendor.wifi.band_steering=1
+persist.vendor.wifi.dual_band=1
+persist.mtk.wcn.wifi.5g.enabled=1
+persist.mtk.wcn.wifi.band=3
+wifi.5ghz.preferred=1
+# MT6631: 80MHz BW (HE80)
+persist.vendor.wifi.vht80.enable=true
+persist.wifi.11ax.enabled=1
+persist.wifi.he.enabled=1
+persist.wifi.mbo.enabled=1
+persist.wifi.oce.enabled=1
+persist.wifi.sae.enabled=1
+persist.wifi.twt.enabled=1
+persist.vendor.wifi.roaming_trigger=-75
+persist.vendor.wifi.roaming_diff=10
+ro.vendor.mtk_wifi_fast_bss_transition=1
+wifi.softap.interface=wlan0
+persist.vendor.wifi.softap.band=0
+persist.vendor.wifi.softap.max_num_sta=10
+
+# =============================================================================
+# 5. LOGGING — Off (reduce modem/CPU overhead)
+# =============================================================================
+persist.vendor.sys.wifi.log=0
+persist.vendor.sys.bt.log=0
+persist.vendor.log.tel_log_ctrl=0
+persist.vendor.mtk.modem.log=0
+persist.vendor.radio.log.disable=1
+persist.vendor.connsys.dynamic.dump=0
+persist.vendor.connsys.coredump.mode=0
+
+# =============================================================================
+# 6. DNS — Cloudflare
+# =============================================================================
+net.dns1=1.1.1.1
+net.dns2=1.0.0.1
+net.rmnet0.dns1=1.1.1.1
+net.rmnet0.dns2=1.0.0.1
+net.rmnet1.dns1=1.1.1.1
+net.rmnet1.dns2=1.0.0.1
+
+# =============================================================================
+# 7. NR / 5G — Sub-6 only, SA+NSA, 2CC CA, 256QAM
+#     Dimensity 820 does NOT support mmWave
+# =============================================================================
+persist.vendor.radio.nr.enabled=1
+persist.vendor.radio.force_nr=true
+persist.vendor.radio.nr_sa_mode=1
+persist.vendor.radio.nr_nsa_mode=1
+persist.vendor.radio.mtk_nr_support=1
+persist.vendor.radio.nr_mode=1
+persist.radio.nr.switch=1
+persist.vendor.radio.5g_mode_pref=0
+persist.vendor.radio.mtk_nr_slot_policy=1
+ro.vendor.mtk_nr_capable=1
+ro.vendor.mtk_nr_support=1
+ro.telephony.default_network=26
+
+# =============================================================================
+# 8. CONNSYS / RADIO / IMS / DSDS — MT6875
+# =============================================================================
+persist.vendor.connsys.chipid=-1
+persist.vendor.connsys.adie.chipid=-1
+persist.vendor.connsys.coex_policy=coexist
+persist.vendor.connsys.bt_wlan_coex=1
+persist.vendor.connsys.wlan_bt_timeshare=1
+persist.vendor.connsys.pta_enable=1
+persist.vendor.radio.mtk_ps1_rat=C/L/W/G
+persist.vendor.radio.mtk_ps2_rat=L/G
+persist.vendor.radio.sim_switch_policy=2
+persist.radio.multisim.config=dsds
+persist.vendor.ims_support=1
+persist.vendor.mtk_ims_support=1
+persist.vendor.volte_support=1
+persist.vendor.mtk_volte_support=1
+persist.vendor.wfc_support=1
+persist.vendor.mtk_wfc_support=1
+persist.vendor.vilte_support=1
+persist.vendor.viwifi_support=1
+persist.vendor.mtk_ct_volte_support=1
+persist.vendor.radio.mtk_ims_ra_support=1
+persist.vendor.radio.ims_bearer_persist=1
+
+# =============================================================================
+# 9. LTE-A BANDS — D820 certified global bands (no 29, 30)
+# =============================================================================
+persist.vendor.radio.lte_band=1,2,3,4,5,7,8,12,13,17,18,19,20,25,26,28,34,38,39,40,41,66
+persist.vendor.radio.lte_mimo_mode=2
+persist.vendor.radio.lte_256qam=1
+persist.vendor.radio.lte_harq=1
+persist.vendor.radio.lte_mtu=1500
+
+# =============================================================================
+# 9a. NR BANDS — Sub-6 only, no mmWave
+#     n1,n3,n5,n7,n8,n20,n28,n38,n40,n41,n77,n78
+# =============================================================================
+persist.vendor.radio.nr_band=1,3,5,7,8,20,28,38,40,41,77,78
+persist.vendor.radio.nr_256qam=1
+persist.vendor.radio.nr_ul_mimo=1
+persist.vendor.radio.nr_beam_management=1
+persist.vendor.radio.nr_pdcp_rohc=1
+persist.vendor.radio.nr_cdrx_enable=1
+# BWP inactivity timer — 2560ms (D820 modem optimal)
+persist.vendor.radio.nr_bwp_inactivity_timer=2560
+persist.vendor.radio.nr_ca_max_component=2
+persist.vendor.radio.nr_intra_band_ca=1
+persist.vendor.radio.nr_inter_band_ca=1
+persist.vendor.radio.nr_mtu=1500
+persist.vendor.radio.endc_enabled=1
+persist.vendor.radio.nr_endc_support=1
+persist.vendor.radio.mtk_endc_support=1
+persist.vendor.radio.enhanced_ca_support=1
+
+# =============================================================================
+# 10. VoLTE / VoNR
+# =============================================================================
+persist.vendor.radio.volte_enabled=1
+persist.vendor.radio.vonr_enabled=1
+persist.vendor.radio.vonr_setting_enabled=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.dbg.ims_volte_enable=1
+
+# =============================================================================
+# 11. ANTENNA / DIVERSITY — 4RX on D820
+# =============================================================================
+persist.vendor.radio.ant_switch=1
+persist.vendor.radio.ant_diversity=1
+persist.vendor.radio.lte_rx_diversity=1
+persist.vendor.radio.nr_rx_diversity=1
+persist.vendor.radio.lte_dl_4rx=1
+persist.vendor.radio.nr_dl_4rx=1
+persist.vendor.radio.lte_ul_mcs_boost=1
+persist.vendor.radio.nr_ul_mcs_boost=1
+persist.vendor.radio.lte_ul_rank=2
+persist.vendor.radio.nr_ul_rank=2
+
+# =============================================================================
+# 12. CONNAC WIFI CHIP — MT6631 (connac2 only, no connac3)
+#     WiFi 6 802.11ax, 2x2 MIMO, 80MHz
+# =============================================================================
+persist.vendor.wifi.connac2=1
+persist.vendor.mtk.wifi.ampdu_tx=1
+persist.vendor.mtk.wifi.ampdu_rx=1
+persist.vendor.mtk.wifi.amsdu_tx=1
+persist.vendor.mtk.wifi.amsdu_rx=1
+persist.vendor.mtk.wifi.tx_power_boost=1
+persist.vendor.mtk.wifi.he_dl_ofdma=1
+persist.vendor.mtk.wifi.he_ul_ofdma=1
+persist.vendor.mtk.wifi.su_bfee=1
+persist.vendor.mtk.wifi.mu_bfee=1
+persist.vendor.mtk.wifi.he_mu_edca=1
+persist.vendor.mtk.wifi.wmm_ac_vo=1
+persist.vendor.mtk.wifi.wmm_ac_vi=1
+persist.vendor.mtk.wifi.uapsd_enable=1
+persist.vendor.mtk.wifi.addts_enable=1
+# MT6631 optimal BA window: 64 frames
+persist.vendor.mtk.wifi.ba_tx_size=64
+persist.vendor.mtk.wifi.ba_rx_size=64
+persist.vendor.mtk.wifi.ba_auto=1
+persist.vendor.mtk.wifi.dot11k=1
+persist.vendor.mtk.wifi.dot11v=1
+persist.vendor.mtk.wifi.dot11r=1
+persist.vendor.mtk.wifi.rrm_enable=1
+persist.vendor.mtk.wifi.bss_transition=1
+# MT6631 is 2x2 MIMO
+persist.vendor.mtk.wifi.nss_tx=2
+persist.vendor.mtk.wifi.nss_rx=2
+persist.vendor.mtk.wifi.rate_control=1
+
+# =============================================================================
+# 13. IMS STACK — AMR-WB, EVS, Opus
+# =============================================================================
+persist.vendor.ims.codec.amrwb=1
+persist.vendor.ims.codec.evs=1
+persist.vendor.ims.codec.opus=1
+persist.vendor.ims.rtcp_xr=1
+persist.vendor.ims.emergency_over_wifi=1
+persist.vendor.ims.e911_on_vowifi=1
+persist.vendor.radio.srvcc_enable=1
+persist.vendor.radio.srvcc_type=3
+persist.vendor.radio.csfb_rat=lte
+
+# =============================================================================
+# 14. NETWORK SEARCH + MODEM POWER — 7nm optimized
+# =============================================================================
+persist.vendor.radio.rat_priority=nr,lte,wcdma,gsm
+persist.vendor.radio.fast_camp_enable=1
+persist.vendor.radio.network.auto_selection=1
+persist.vendor.radio.md_fast_wakeup=1
+persist.vendor.radio.md_sleep_threshold=-100
+persist.vendor.radio.psm.disabled=1
+persist.vendor.radio.data_throttle=0
+persist.vendor.radio.slice_support=1
+persist.vendor.radio.ursp_enable=1
+
+# =============================================================================
+# 15. SETTINGS UI FEATURE UNLOCK (all ROMs)
+# =============================================================================
+persist.vendor.radio.nr.setting.support=1
+persist.vendor.radio.volte_setting_support=1
+persist.vendor.radio.wfc_setting_support=1
+persist.vendor.radio.force_network_mode=1
+persist.vendor.radio.apn_unlock=1
+persist.radio.show_signal_dbm=1
+persist.dbg.vt_avail_ovr=1
+persist.sys.miui.volte_available=1
+persist.sys.miui.wfc_available=1
+persist.sys.miui.nr_available=1
+persist.sys.miui.show_volte_icon=1
+persist.sys.miui.show_nr_icon=1
+persist.sys.miui.show_wfc_icon=1
+persist.radio.show_network_mode=1
+persist.radio.advanced_settings=1
