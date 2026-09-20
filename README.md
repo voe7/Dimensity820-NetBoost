@@ -100,7 +100,7 @@ flowchart TD
 - **系统类型：** AOSP, MIUI, HyperOS, ColorOS 及各种第三方 ROM 均可
 
 ### 🛠️ 安装步骤
-1. 下载最新发行版：`mtk_bwmod_d820_v2.0.zip`
+1. 下载最新发行版：`Dimensity820-NetBoost_v2.0.zip`
 2. 打开 **Magisk** 或 **KernelSU** → 模块 → 从本地安装。
 3. 选中压缩包，等待严苛的硬件校验通过。
 4. **重启设备** — 满血网络性能将自动激活。
